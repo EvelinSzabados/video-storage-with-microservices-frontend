@@ -1,5 +1,7 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext, useEffect, useContext } from "react";
+import { DetailContext } from "./DetailContext";
 import axios from "axios";
+
 
 export const VideoContext = createContext();
 

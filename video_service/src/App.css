@@ -13,8 +13,7 @@ body {
   grid-template-columns: repeat(2, minmax(300px, 2fr));
   grid-auto-rows: auto;
   grid-gap: 1rem;
-  align-content: center;
-  align-items: center;
+
 }
 
 header {

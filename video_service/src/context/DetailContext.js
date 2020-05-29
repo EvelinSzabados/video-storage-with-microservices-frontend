@@ -15,7 +15,6 @@ export const DetailProvider = (props) => {
         axios(url, {
             method: 'GET',
         }).then((resp) => {
-
             setDetail(resp.data)
         })
 
