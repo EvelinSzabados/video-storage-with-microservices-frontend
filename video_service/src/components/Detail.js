@@ -16,8 +16,6 @@ export default function Detail() {
         console.log(rate)
         console.log(message)
         if (message !== "" && rate !== "") {
-
-
             Axios.post(
                 "http://localhost:8081/videos/add",
                 {
@@ -27,11 +25,15 @@ export default function Detail() {
                 }
             ).then(res => {
                 setPopUp("Thanks for your feedback!")
+                setDetail(prevState => ({
+                    ...prevState,
+                    recommendations: [...prevState.recommendations, {
+                        "comment": message,
+                        "rate": rate,
+                        "videoId": detail.id
+                    }]
+                }))
                 setTimeout(() => { setPopUp("") }, 1500)
-
-                setMessage("");
-                setRate("")
-
 
             }).catch(() => {
                 setPopUp("Try again!")
