@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { VideoContext } from "../context/VideoContext";
+import { Link } from "react-router-dom";
 import ReactPlayer from "react-player"
 
 export default function VideoList() {
@@ -19,7 +20,8 @@ export default function VideoList() {
                                 url={data.url}
                             />
                         </p>
-                        <button className="detail-button">Details</button>
+                        <Link to={"/details/" + data.id}
+                            style={{ textDecoration: 'none' }}><button className="detail-button">Details</button></Link>
                     </div>
                 ))}
 

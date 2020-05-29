@@ -52,3 +52,42 @@ header {
 .detail-button:hover{
   background-color: crimson;
 }
+.recommendation-box{
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+.recommendation-box span{
+  color: crimson;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.submit-button{
+  padding: 1rem 3rem;
+  background-color: crimson;
+  color: white;
+  cursor: pointer;
+  outline:none;
+  border-radius: 20px;
+  border: none;
+}
+.comment-field{
+  padding: 1rem;
+  margin: 1rem 0;
+  color: #404040;
+  border: 1px solid #ccc;
+  width: 80%;
+  border-radius: 20px;
+  outline:none;
+}
+#rating{
+  padding: 1rem;
+  background-color: white;
+  color: #404040;
+  border: 1px solid #ccc;
+  outline:none;
+  width: 40%;
+  border-radius: 20px;
+}
