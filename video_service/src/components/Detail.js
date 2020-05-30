@@ -13,11 +13,12 @@ export default function Detail() {
 
 
     const add = () => {
-        console.log(rate)
-        console.log(message)
+        const form = document.querySelector('input');
+        const select = document.querySelector('#rating');
+
         if (message !== "" && rate !== "") {
             Axios.post(
-                "http://localhost:8081/videos/add",
+                "http://localhost:8762/videos/add",
                 {
                     "comment": message,
                     "rating": rate,
@@ -29,11 +30,16 @@ export default function Detail() {
                     ...prevState,
                     recommendations: [...prevState.recommendations, {
                         "comment": message,
-                        "rate": rate,
+                        "rating": rate,
                         "videoId": detail.id
                     }]
                 }))
+                form.value = "";
+                select.value = "";
+                setMessage("");
+                setRate("");
                 setTimeout(() => { setPopUp("") }, 1500)
+
 
             }).catch(() => {
                 setPopUp("Try again!")
@@ -51,7 +57,7 @@ export default function Detail() {
             <div className="main-wrapper">
 
                 <div className="card">
-                    <p className="title">{detail.name}</p>
+                    <p className="title">{detail.name + " (ID: " + detail.id + ")"}</p>
                     <p className="url">
                         <ReactPlayer
                             url={detail.url}
@@ -71,25 +77,27 @@ export default function Detail() {
                         </div>
 
                     ))}
-                    <p>
-                        <h1>Write new recommendation:</h1>
-                        <p>Rate:</p>
-                        <select id="rating" name="rate"
-                            onChange={(e) => { setRate(e.target.value) }}>
-                            <option value="" selected disabled hidden>Please rate</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <p>Comment:</p>
-                        <input className="comment-field" type="text"
-                            onChange={(e) => {
-                                setMessage(e.target.value)
-                            }} ></input></p>
+
+                    <h1>Write new recommendation:</h1>
+                    <p>Rate:</p>
+
+                    <select id="rating" name="rate"
+                        onChange={(e) => { setRate(e.target.value) }}>
+                        <option value="" selected disabled hidden>Please rate</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <p>Comment:</p>
+                    <input className="comment-field" type="text"
+                        onChange={(e) => {
+                            setMessage(e.target.value)
+                        }} ></input>
                     <p>{popUp}</p>
                     <input className="submit-button" type="submit" onClick={add}></input>
+
 
                 </div>
 

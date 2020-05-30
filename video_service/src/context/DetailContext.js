@@ -6,7 +6,7 @@ export const DetailContext = createContext();
 
 export const DetailProvider = (props) => {
     const { id } = useParams();
-    const url = "http://localhost:8081/videos/" + id;
+    const url = "http://localhost:8762/videos/" + id;
     const [detail, setDetail] = useState([]);
 
 

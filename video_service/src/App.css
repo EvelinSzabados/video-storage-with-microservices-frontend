@@ -6,7 +6,7 @@ body {
 .main-wrapper {
   background-color: white;
   color: #404040;
-  margin: 0 auto;
+  margin: 0 auto 2rem auto;
   width: 80%;
   padding: 2rem;
   display: grid;
@@ -71,6 +71,10 @@ header {
   outline:none;
   border-radius: 20px;
   border: none;
+}
+
+.submit-button:hover{
+  background-color: #404040;
 }
 .comment-field{
   padding: 1rem;

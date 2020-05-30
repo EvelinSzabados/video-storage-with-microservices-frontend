@@ -6,7 +6,7 @@ import axios from "axios";
 export const VideoContext = createContext();
 
 export const VideoProvider = (props) => {
-    const url = "http://localhost:8081/videos/all";
+    const url = "http://localhost:8762/videos/all";
     const [video, setVideo] = useState([]);
 
 
